@@ -44,8 +44,6 @@ public class IslandPerimeter {
                 return 0;
 
             marker[row][col]=-1;
-
-            int result=0;
             return getIslandPerimeter(grid,marker,row-1,col) + getIslandPerimeter(grid,marker, row+1,col) + getIslandPerimeter(grid,marker,row, col-1) +getIslandPerimeter(grid,marker, row, col+1);
         }
 
