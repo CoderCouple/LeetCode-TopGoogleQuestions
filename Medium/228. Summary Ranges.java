@@ -36,16 +36,16 @@ public class SummaryRanges {
             if(nums[i]==end+1)
                 end=nums[i];
             else {
-                result.add(CreateRange(start,end));
+                result.add(createRange(start,end));
                 start=nums[i];
                 end=nums[i];
             }
         }
-        result.add(CreateRange(start,end));
+        result.add(createRange(start,end));
         return result;
     }
 
-    public String CreateRange(int start,int end){
+    public String createRange(int start,int end){
         if(start==end)
             return ""+start;
         else return ""+start+"->"+end+"";
