@@ -5,7 +5,7 @@ import java.util.List;
 
 /***
  *
- * 
+ *
  Given a sorted integer array without duplicates, return the summary of its ranges.
 
  Example 1:
@@ -18,8 +18,8 @@ import java.util.List;
  Input:  [0,2,3,4,6,8,9]
  Output: ["0","2->4","6","8->9"]
  Explanation: 2,3,4 form a continuous range; 8,9 form a continuous range.
- 
- * 
+
+ *
  * ***/
 public class SummaryRanges {
 
@@ -36,16 +36,18 @@ public class SummaryRanges {
             if(nums[i]==end+1)
                 end=nums[i];
             else {
-                if(start==end)
-                    result.add(start+"");
-                else result.add(""+start+"->"+end+"");
+                result.add(CreateRange(start,end));
                 start=nums[i];
                 end=nums[i];
             }
         }
-        if(start==end)
-            result.add(start+"");
-        else result.add(""+start+"->"+end+"");
+        result.add(CreateRange(start,end));
         return result;
+    }
+
+    public String CreateRange(int start,int end){
+        if(start==end)
+            return ""+start;
+        else return ""+start+"->"+end+"";
     }
 }
