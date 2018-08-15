@@ -1,4 +1,3 @@
-package FBQuestions;
 /**
  *
  Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
@@ -14,29 +13,18 @@ package FBQuestions;
  *
  * **/
 
-public class LongestSubSequence_MaxSum {
-
-    public int maxSubArraySum(int array []){
-        if(array.length==0)
+class Solution {
+    public int maxSubArray(int[] nums) {
+        if(nums.length==0)
             return Integer.MIN_VALUE;
+        
+        int cur_max=nums[0];
+        int global_max=nums[0];
 
-        int global_max=array[0];
-        int curr_max=array[0];
-
-        for(int i=1;i<array.length;i++){
-            curr_max=Math.max(array[i],array[i]+curr_max);
-            global_max=Math.max(global_max,curr_max);
+        for(int i=1; i<nums.length; i++){
+            cur_max=Math.max(cur_max+nums[i],nums[i]);
+            global_max=Math.max(cur_max,global_max);
         }
         return global_max;
-    }
-
-    public static void main(String[] args)
-    {
-        int a[] = {-2, -3, 4, -1, -2, 1, 5, -3};
-        int n = a.length;
-        LongestSubSequence_MaxSum m = new LongestSubSequence_MaxSum();
-        int max_sum = m.maxSubArraySum(a);
-        System.out.println("Maximum contiguous sum is "
-                + max_sum);
     }
 }
