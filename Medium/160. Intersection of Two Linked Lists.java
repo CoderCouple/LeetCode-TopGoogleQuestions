@@ -1,5 +1,3 @@
-package FBQuestions;
-
 
 /**
  *
@@ -13,7 +11,7 @@ package FBQuestions;
                      c1 → c2 → c3
                      ↗
  B:     b1 → b2 → b3
- 
+
 
  Notes:
 
@@ -85,6 +83,22 @@ public class IntersectionOfLinkedList {
         return null;
     }
 
+
+    public ListNode getIntersectionNode1(ListNode headA, ListNode headB) {
+
+        if(headA==null || headB==null)
+            return null;
+
+        ListNode currA=headA;
+        ListNode currB=headB;
+
+        while(currA!=currB){
+            currA= currA==null? headB : currA.next;
+            currB= currB==null? headA : currB.next;
+        }
+        return currA;
+    }
+    
     public static void main(String [] args){
 
     }
